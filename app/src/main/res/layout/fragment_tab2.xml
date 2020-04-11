@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".tab2">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <com.alespero.expandablecardview.ExpandableCardView
+                android:id="@+id/cardViewWHB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:animationDuration="300"
+                app:expandOnClick="true"
+                app:inner_view="@layout/whole_blood"
+                app:title="@string/WHB" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="5dp"
+                android:background="@android:color/darker_gray"/>
+
+            <com.alespero.expandablecardview.ExpandableCardView
+                android:id="@+id/cardViewPRBC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:animationDuration="300"
+                app:expandOnClick="true"
+                app:inner_view="@layout/packed_rbc"
+                app:startExpanded="false"
+                app:title="@string/PRBC" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="5dp"
+                android:background="@android:color/darker_gray"/>
+
+            <com.alespero.expandablecardview.ExpandableCardView
+                android:id="@+id/cardViewPC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:animationDuration="300"
+                app:expandOnClick="true"
+                app:inner_view="@layout/platelet_conc"
+                app:startExpanded="false"
+                app:title="@string/PC" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="5dp"
+                android:background="@android:color/darker_gray"/>
+
+            <com.alespero.expandablecardview.ExpandableCardView
+                android:id="@+id/cardViewAHF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:animationDuration="300"
+                app:expandOnClick="true"
+                app:inner_view="@layout/anti_hf"
+                app:startExpanded="false"
+                app:title="@string/AHF" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="5dp"
+                android:background="@android:color/darker_gray"/>
+
+            <com.alespero.expandablecardview.ExpandableCardView
+                android:id="@+id/cardViewFFP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:animationDuration="300"
+                app:expandOnClick="true"
+                app:inner_view="@layout/fresh_frozen_plasma"
+                app:startExpanded="false"
+                app:title="@string/FFP" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="5dp"
+                android:background="@android:color/darker_gray"/>
+
+            <Button
+                android:id="@+id/update"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="30dp"
+                android:background="@drawable/black_button"
+                android:text="Update"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

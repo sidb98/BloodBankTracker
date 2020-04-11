@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    android:elevation="4dp"
+    android:padding="5dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_gravity="right"
+        android:background="@drawable/action_bar_button"
+        android:text="Login" />
+
+</androidx.appcompat.widget.Toolbar>

@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">BBTracker</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="WHB">Whole Human Blood</string>
+    <string name="PRBC">Packed Red Blood Cell</string>
+    <string name="PC">Platelet Concentration</string>
+    <string name="AHF">Anti Haemophilic Factor</string>
+    <string name="FFP">Fresh Frozen Plasma</string>
+
+    <string-array name="Category_items">
+        <item>None</item>
+        <item>Whole Human Blood</item>
+        <item>Packed RBC</item>
+        <item>Platelet Concentration</item>
+        <item>Anti Hemophilic Factor</item>
+        <item>Fresh Frozen Plasma</item>
+    </string-array>
+
+    <string-array name="BG_items">
+        <item>None</item>
+        <item>A+ve</item>
+        <item>A-ve</item>
+        <item>B+ve</item>
+        <item>B-ve</item>
+        <item>AB+ve</item>
+        <item>AB-ve</item>
+        <item>O+ve</item>
+        <item>O-ve</item>
+    </string-array>
+</resources>

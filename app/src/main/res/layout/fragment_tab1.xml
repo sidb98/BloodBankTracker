@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".tab1">
+
+
+    <RelativeLayout
+        android:id="@+id/topRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/rectangle_edittext"
+        android:padding="15dp">
+
+        <ImageView
+            android:id="@+id/imageBankIcon"
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/blood_bank_icon" />
+
+        <TextView
+            android:id="@+id/textHospitalName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_toRightOf="@id/imageBankIcon"
+            android:text="Matoshri Valbai Mulji Shah, Arpan Blood Bank"
+            android:textColor="@color/black"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/topRelativeLayout"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:padding="1dp">
+
+        <ImageView
+            android:id="@+id/imageLocation"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:layout_alignTop="@id/tagAddress"
+            android:src="@drawable/location" />
+
+        <TextView
+            android:id="@+id/tagAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/imageLocation"
+            android:text="Address"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/textAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tagAddress"
+            android:layout_alignLeft="@id/tagAddress"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="15dp"
+            android:layout_toRightOf="@id/imageLocation"
+            android:text="Aniraj Tower, 2nd Floor, Janta Markat, Opp Metro Mall, L.B.S Marg, Bhandup (W),, Mumbai, Maharashtra"
+            android:textSize="20sp"
+            />
+
+        <View
+            android:layout_below="@+id/textAddress"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="10dp"
+            android:background="@android:color/black" />
+
+        <ImageView
+            android:id="@+id/imagePhone"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@id/textAddress"
+            android:layout_marginLeft="20dp"
+            android:layout_alignTop="@+id/tagPhone"
+            android:src="@drawable/phone" />
+
+        <TextView
+            android:id="@+id/tagPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textAddress"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@id/imagePhone"
+            android:text="Phone "
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/textMobileNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tagPhone"
+            android:layout_alignLeft="@id/tagPhone"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="15dp"
+            android:layout_toRightOf="@id/imagePhone"
+            android:text="9999999999"
+            android:textSize="20sp" />
+        <View
+            android:layout_below="@+id/textMobileNo"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="10dp"
+            android:background="@android:color/black" />
+
+        <ImageView
+            android:id="@+id/imageEmail"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@id/textMobileNo"
+            android:layout_marginLeft="20dp"
+            android:layout_alignTop="@id/tagEmailId"
+            android:src="@drawable/gmail" />
+
+        <TextView
+            android:id="@+id/tagEmailId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textMobileNo"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@id/imageEmail"
+            android:text="Email "
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/textEmailId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tagEmailId"
+            android:layout_alignLeft="@id/tagEmailId"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="15dp"
+            android:layout_toRightOf="@id/imageEmail"
+            android:text="testemail@gmail.com"
+            android:textSize="20sp" />
+        <View
+            android:layout_below="@+id/textEmailId"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="10dp"
+
+            android:background="@android:color/black" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

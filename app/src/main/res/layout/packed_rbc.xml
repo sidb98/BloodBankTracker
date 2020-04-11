@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="15dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        android:weightSum="100">
+
+        <TextView
+            android:id="@+id/tvAP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="45"
+            android:gravity="center"
+            android:text="A +ve"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/txtprbcAP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="65"
+            android:background="@drawable/rectangle_edittext"
+            android:gravity="center"
+            android:inputType="number"
+            android:padding="10dp"
+            android:text="0" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        android:weightSum="100">
+
+        <TextView
+            android:id="@+id/tvAN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="45"
+            android:gravity="center"
+            android:text="A -ve"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/txtprbcAN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="65"
+            android:background="@drawable/rectangle_edittext"
+            android:gravity="center"
+            android:inputType="number"
+            android:padding="10dp"
+            android:text="0" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        android:weightSum="100">
+
+        <TextView
+            android:id="@+id/tvBP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="45"
+            android:gravity="center"
+            android:text="B +ve"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/txtprbcBP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="65"
+            android:background="@drawable/rectangle_edittext"
+            android:gravity="center"
+            android:inputType="number"
+            android:padding="10dp"
+            android:text="0" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        android:weightSum="100">
+
+        <TextView
+            android:id="@+id/tvBN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="45"
+            android:gravity="center"
+            android:text="B -ve"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/txtprbcBN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="65"
+            android:background="@drawable/rectangle_edittext"
+            android:gravity="center"
+            android:inputType="number"
+            android:padding="10dp"
+            android:text="0" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        android:weightSum="100">
+
+        <TextView
+            android:id="@+id/tvABP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="45"
+            android:gravity="center"
+            android:text="AB +ve"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/txtprbcABP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="65"
+            android:background="@drawable/rectangle_edittext"
+            android:gravity="center"
+            android:inputType="number"
+            android:padding="10dp"
+            android:text="0" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        android:weightSum="100">
+
+        <TextView
+            android:id="@+id/tvABN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="45"
+            android:gravity="center"
+            android:text="AB -ve"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/txtprbcABN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="65"
+            android:background="@drawable/rectangle_edittext"
+            android:gravity="center"
+            android:inputType="number"
+            android:padding="10dp"
+            android:text="0" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        android:weightSum="100">
+
+        <TextView
+            android:id="@+id/tvOP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="45"
+            android:gravity="center"
+            android:text="O +ve"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/txtprbcOP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="65"
+            android:background="@drawable/rectangle_edittext"
+            android:gravity="center"
+            android:inputType="number"
+            android:padding="10dp"
+            android:text="0" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        android:weightSum="100">
+
+        <TextView
+            android:id="@+id/tvON"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="45"
+            android:gravity="center"
+            android:text="O -ve"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/txtprbcON"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="65"
+            android:background="@drawable/rectangle_edittext"
+            android:gravity="center"
+            android:inputType="number"
+            android:padding="10dp"
+            android:text="0" />
+    </LinearLayout>
+
+</LinearLayout>
