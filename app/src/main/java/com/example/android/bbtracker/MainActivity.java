@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> zone=new ArrayList<>();
     ArrayList<String> tempzone=new ArrayList<>();
     ArrayList<String> uids=new ArrayList<>();
-    ArrayList<Integer> phoneno=new ArrayList<>();
-    public static  ArrayList<Integer> tempphoneno=new ArrayList<>();
+    ArrayList<String> phoneno=new ArrayList<>();
+    public static  ArrayList<String> tempphoneno=new ArrayList<>();
     ArrayList<String> tempuids=new ArrayList<>();
 
     ArrayList<BloodGroups> whbl=new ArrayList<>();
@@ -134,8 +134,8 @@ public class MainActivity extends AppCompatActivity {
                     uids.add(snapshot1.getKey());
                     tempuids.add(snapshot1.getKey());
                     zone.add((String) dataSnapshot.child("BloodBankDetails").child(snapshot1.getKey()).child("Zone").getValue());
-                    phoneno.add(Integer.parseInt(dataSnapshot.child("BloodBankDetails").child(snapshot1.getKey()).child("PhoneNumber").getValue().toString().trim()));
-                    tempphoneno.add(Integer.parseInt(dataSnapshot.child("BloodBankDetails").child(snapshot1.getKey()).child("PhoneNumber").getValue().toString().trim()));
+                    phoneno.add((dataSnapshot.child("BloodBankDetails").child(snapshot1.getKey()).child("PhoneNumber").getValue().toString().trim()));
+                    tempphoneno.add((dataSnapshot.child("BloodBankDetails").child(snapshot1.getKey()).child("PhoneNumber").getValue().toString().trim()));
                     Log.d("TAG", snapshot1.getKey());
                     BBArrayAdapter.notifyDataSetChanged();
                 }
@@ -160,6 +160,8 @@ public class MainActivity extends AppCompatActivity {
                 if(categoryspinner.getSelectedItem().toString().trim().compareTo("None")==0){
                     bgspinner.setVisibility(View.INVISIBLE);
                     tvbg.setVisibility(View.INVISIBLE);
+                    updateList(search.getText().toString().trim(),categoryspinner.getSelectedItem().toString().trim(),bgspinner.getSelectedItem().toString().trim());
+                    BBArrayAdapter.notifyDataSetChanged();
                 }
                 else{
                     bgspinner.setVisibility(View.VISIBLE);

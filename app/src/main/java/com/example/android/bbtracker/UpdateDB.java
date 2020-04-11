@@ -34,6 +34,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class UpdateDB extends AppCompatActivity {
 
@@ -116,14 +118,16 @@ public class UpdateDB extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String namev = name.getText().toString().trim();
-                String phoneno = (phonenumber.getText().toString().trim());
+                String phoneno =(phonenumber.getText().toString().trim());
                 String addressv = address.getText().toString().trim();
                 String zonev=zone.getText().toString().trim();
-                if (namev.isEmpty() ||zonev.isEmpty() ||(phoneno).isEmpty() || addressv.isEmpty() || !phoneno.matches("[0-9]+")) {
+                Pattern p = Pattern.compile("[7-9][0-9]{9}");
+                Matcher m = p.matcher((phoneno));
+                if (namev.isEmpty() ||zonev.isEmpty() || addressv.isEmpty() || !(m.find() && m.group().equals((phoneno)))) {
                     Toast.makeText(UpdateDB.this, "Enter correct Details", Toast.LENGTH_LONG).show();
                 }
                 else {
-                    BBDetails details = new BBDetails(namev, Integer.parseInt(phoneno), addressv, zonev);
+                    BBDetails details = new BBDetails(namev, phoneno, addressv, zonev);
                     if (mAuth.getCurrentUser() != null)
                         FirebaseDatabase.getInstance().getReference().child("BloodBankDetails").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(details)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {

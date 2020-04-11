@@ -86,7 +86,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
                                             //FirebaseDatabase.getInstance().getReference().child("BBDetails").child(firmNumber)
                                             Log.d("ResetPassword", "Password Changed");
                                             Intent intent = new Intent(ResetPasswordActivity.this, ProfileActivity.class);
-
+                                            finish();
                                             startActivity(intent);
                                         } else {
                                             Toast.makeText(ResetPasswordActivity.this, "Error Occurred\nPassword not updated ",
