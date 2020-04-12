@@ -172,7 +172,7 @@
             android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:background="@drawable/rectangle_edittext"
-            android:hint="Search"
+            android:hint="Find Blood Bank, Zones "
             android:padding="10dp" />
 
     </LinearLayout>
@@ -189,7 +189,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Filter"
+            android:text="Category"
             android:textColor="@color/colorPrimary"
             android:textSize="18sp"
             android:textStyle="bold" />

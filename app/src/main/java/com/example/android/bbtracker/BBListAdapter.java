@@ -33,7 +33,7 @@ public class BBListAdapter extends ArrayAdapter<LastUpdate> {
 
     private Context mContext;
     int mResource;
-    private int PHONE_PERMISSION_CODE =1;
+    private int PHONE_PERMISSION_CODE = 1;
 
     public BBListAdapter(Context context, int resource, List<LastUpdate> objects) {
         super(context, resource, objects);
@@ -97,15 +97,19 @@ public class BBListAdapter extends ArrayAdapter<LastUpdate> {
             public void onClick(View view) {
                 //Toast.makeText(getContext(), Integer.toString(DisplayDB.tempphoneno.get(tempPos)), Toast.LENGTH_LONG).show();
                 String number = (MainActivity.tempphoneno.get(tempPos));
-                Intent callIntent = new Intent(Intent.ACTION_DIAL);
-                callIntent.setData(Uri.parse("tel: "+number ));
-                if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                    //Request for permission
-                    ActivityCompat.requestPermissions((Activity) getContext(), new String[] {Manifest.permission.CALL_PHONE}, PHONE_PERMISSION_CODE);
+                if (!number.isEmpty()) {
+                    Intent callIntent = new Intent(Intent.ACTION_DIAL);
+                    callIntent.setData(Uri.parse("tel: " + number));
+                    if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                        //Request for permission
+                        ActivityCompat.requestPermissions((Activity) getContext(), new String[]{Manifest.permission.CALL_PHONE}, PHONE_PERMISSION_CODE);
 
-                    return;
+                        return;
+                    }
+                    getContext().startActivity(callIntent);
+                } else {
+                    Toast.makeText(getContext(), "Phone number does not exist",Toast.LENGTH_LONG).show();
                 }
-                getContext().startActivity(callIntent);
             }
         });
 

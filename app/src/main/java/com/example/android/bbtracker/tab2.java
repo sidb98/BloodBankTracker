@@ -320,7 +320,7 @@ public class tab2 extends Fragment {
                             }
                         });
                 if(flag==1){
-                    Toast.makeText(getActivity(),"Data Entry Failed!",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(),"Data entry failed!\n Check Internet connectivity",Toast.LENGTH_LONG).show();
                 }
                 else{
                     if(whbcard.isExpanded())
@@ -333,7 +333,7 @@ public class tab2 extends Fragment {
                         ahfcard.collapse();
                     if(ffpcard.isExpanded())
                         ffpcard.collapse();
-                    Toast.makeText(getActivity(),"Data Updated Successfully!",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(),"Data updated successfully!",Toast.LENGTH_LONG).show();
                 }
             }
         });
