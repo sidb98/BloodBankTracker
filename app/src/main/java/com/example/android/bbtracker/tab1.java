@@ -6,7 +6,19 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import org.w3c.dom.Text;
+
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 
@@ -52,6 +64,9 @@ public class tab1 extends Fragment {
         return fragment;
     }
 
+    TextView bbname,bbphoneno,bbaddress,bbemail;
+    String userid;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +80,38 @@ public class tab1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tab1, container, false);
+        View v=inflater.inflate(R.layout.fragment_tab1, container, false);
+
+        bbname=(TextView)v.findViewById(R.id.textHospitalName);
+        bbaddress=(TextView)v.findViewById(R.id.textAddress);
+        bbphoneno=(TextView)v.findViewById(R.id.textMobileNo);
+        bbemail=(TextView)v.findViewById(R.id.textEmailId);
+
+        userid=FirebaseAuth.getInstance().getCurrentUser().getUid();;
+
+        final DatabaseReference reff= FirebaseDatabase.getInstance().getReference().child("BloodBankDetails");
+
+        reff.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                BBDetails bb=dataSnapshot.child(userid).getValue(BBDetails.class);
+                bbname.setText(bb.Name);
+                bbaddress.setText(bb.Address);
+                String tempNumber=bb.PhoneNumber;
+                if(tempNumber.isEmpty())
+                    tempNumber="Not Available";
+                bbphoneno.setText(tempNumber);
+                bbemail.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

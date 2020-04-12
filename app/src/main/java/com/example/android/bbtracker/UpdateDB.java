@@ -123,7 +123,7 @@ public class UpdateDB extends AppCompatActivity {
                 String zonev=zone.getText().toString().trim();
                 Pattern p = Pattern.compile("[7-9][0-9]{9}");
                 Matcher m = p.matcher((phoneno));
-                if (namev.isEmpty() ||zonev.isEmpty() || addressv.isEmpty() || !(m.find() && m.group().equals((phoneno)))) {
+                if (namev.isEmpty() ||zonev.isEmpty() || addressv.isEmpty()) {
                     Toast.makeText(UpdateDB.this, "Enter correct Details", Toast.LENGTH_LONG).show();
                 }
                 else {
