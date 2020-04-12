@@ -32,7 +32,7 @@ public class ShowbbDB extends AppCompatActivity {
         final ExpandableCardView ahfcard = findViewById(R.id.cardViewAHF);
         final ExpandableCardView ffpcard = findViewById(R.id.cardViewFFP);
 
-        whbap=(TextView)findViewById(R.id.tvwhbABP);
+        whbap=(TextView)findViewById(R.id.tvwhbAP);
         whban=(TextView)findViewById(R.id.tvwhbAN);
         whbbp=(TextView)findViewById(R.id.tvwhbBP);
         whbbn=(TextView)findViewById(R.id.tvwhbBN);
@@ -96,11 +96,11 @@ public class ShowbbDB extends AppCompatActivity {
                 int ahfsum=AHF.AP+AHF.AN+AHF.BP+AHF.BN+AHF.ABP+AHF.ABN+AHF.OP+AHF.ON;
                 int ffpsum=FFP.AP+FFP.AN+FFP.BP+FFP.BN+FFP.ABP+FFP.ABN+FFP.OP+FFP.ON;
 
-                whbcard.setTitle(-1,getString(R.string.WHB)+"\nTotal Count:"+whbsum);
-                prbccard.setTitle(-1,getString(R.string.PRBC)+"\nTotal Count:"+prbcsum);
-                pccard.setTitle(-1,getString(R.string.PC)+"\nTotal Count:"+pcsum);
-                ahfcard.setTitle(-1,getString(R.string.AHF)+"\nTotal Count:"+ahfsum);
-                ffpcard.setTitle(-1,getString(R.string.FFP)+"\nTotal Count:"+ffpsum);
+                whbcard.setTitle(-1,getString(R.string.WHB)+"\nTotal Count: "+whbsum);
+                prbccard.setTitle(-1,getString(R.string.PRBC)+"\nTotal Count: "+prbcsum);
+                pccard.setTitle(-1,getString(R.string.PC)+"\nTotal Count: "+pcsum);
+                ahfcard.setTitle(-1,getString(R.string.AHF)+"\nTotal Count: "+ahfsum);
+                ffpcard.setTitle(-1,getString(R.string.FFP)+"\nTotal Count: "+ffpsum);
                 
                 whbap.setText(Integer.toString(WHB.AP));
                 whban.setText(Integer.toString(WHB.AN));

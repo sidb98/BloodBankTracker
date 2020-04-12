@@ -107,7 +107,7 @@ public class tab2 extends Fragment {
         final ExpandableCardView ahfcard = v.findViewById(R.id.cardViewAHF);
         final ExpandableCardView ffpcard = v.findViewById(R.id.cardViewFFP);
 
-        whbap=(EditText)v.findViewById(R.id.txtwhbABP);
+        whbap=(EditText)v.findViewById(R.id.txtwhbAP);
         whban=(EditText)v.findViewById(R.id.txtwhbAN);
         whbbp=(EditText)v.findViewById(R.id.txtwhbBP);
         whbbn=(EditText)v.findViewById(R.id.txtwhbBN);

@@ -97,8 +97,8 @@ public class BBListAdapter extends ArrayAdapter<LastUpdate> {
             public void onClick(View view) {
                 //Toast.makeText(getContext(), Integer.toString(DisplayDB.tempphoneno.get(tempPos)), Toast.LENGTH_LONG).show();
                 String number = (MainActivity.tempphoneno.get(tempPos));
-                Intent callIntent = new Intent(Intent.ACTION_CALL);
-                callIntent.setData(Uri.parse("tel: 9892836216" ));
+                Intent callIntent = new Intent(Intent.ACTION_DIAL);
+                callIntent.setData(Uri.parse("tel: "+number ));
                 if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                     //Request for permission
                     ActivityCompat.requestPermissions((Activity) getContext(), new String[] {Manifest.permission.CALL_PHONE}, PHONE_PERMISSION_CODE);

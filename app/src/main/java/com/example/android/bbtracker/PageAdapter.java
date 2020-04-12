@@ -1,5 +1,7 @@
 package com.example.android.bbtracker;
 
+import android.view.ViewGroup;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -33,5 +35,10 @@ public class PageAdapter extends FragmentPagerAdapter {
     @Override
     public int getItemPosition(@NonNull Object object) {
         return POSITION_NONE;
+    }
+
+    @Override
+    public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
+        //super.destroyItem(container, position, object);
     }
 }
