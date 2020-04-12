@@ -49,13 +49,18 @@ public class LoginActivity extends AppCompatActivity {
                 String email = editEmailId.getText().toString().trim();
                 password = editPassword.getText().toString();
                 String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-                if(email.isEmpty() || !email.matches(emailPattern)){
-                    editEmailId.setError("Enter EmailID");
+                if(email.isEmpty()){
+                    editEmailId.setError("Enter Email Id");
+                    editEmailId.requestFocus();
+                    return;
+                }
+                if(!email.matches(emailPattern)){
+                    editEmailId.setError("Invalid Email Id");
                     editEmailId.requestFocus();
                     return;
                 }
                 if(password.isEmpty()){
-                    editPassword.setError("Enter password");
+                    editPassword.setError("Enter Password");
                     editPassword.requestFocus();
                     return;
                 }

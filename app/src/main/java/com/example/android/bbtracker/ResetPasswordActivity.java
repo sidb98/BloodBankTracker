@@ -98,6 +98,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
                                             //FirebaseDatabase.getInstance().getReference().child("BBDetails").child(firmNumber)
                                             Log.d("ResetPassword", "Password Changed");
                                             warningText.setVisibility(View.GONE);
+                                            LoginActivity.flagWarning = false;
                                             Intent intent = new Intent(ResetPasswordActivity.this, ProfileActivity.class);
                                             finish();
                                             startActivity(intent);
