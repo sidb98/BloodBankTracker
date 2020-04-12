@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -66,6 +68,8 @@ public class tab1 extends Fragment {
 
     TextView bbname,bbphoneno,bbaddress,bbemail;
     String userid;
+    RelativeLayout relativeParentLayout;
+    ProgressBar progressBar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -82,6 +86,11 @@ public class tab1 extends Fragment {
         // Inflate the layout for this fragment
         View v=inflater.inflate(R.layout.fragment_tab1, container, false);
 
+//        relativeParentLayout = v.findViewById(R.id.tab1ParentLayout);
+//        relativeParentLayout.setVisibility(View.GONE);
+        progressBar = v.findViewById(R.id.progress_circular);
+        progressBar.setVisibility(View.VISIBLE);
+
         bbname=(TextView)v.findViewById(R.id.textHospitalName);
         bbaddress=(TextView)v.findViewById(R.id.textAddress);
         bbphoneno=(TextView)v.findViewById(R.id.textMobileNo);
@@ -95,6 +104,8 @@ public class tab1 extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 BBDetails bb=dataSnapshot.child(userid).getValue(BBDetails.class);
+//                relativeParentLayout.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.GONE);
                 bbname.setText(bb.Name);
                 bbaddress.setText(bb.Address);
                 String tempNumber=bb.PhoneNumber;

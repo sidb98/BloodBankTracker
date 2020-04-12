@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tab1ParentLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:visibility="visible"
     tools:context=".tab1">
 
-
+    <ProgressBar
+        android:id="@+id/progress_circular"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:layout_centerInParent="true"
+        android:visibility="visible" />
     <RelativeLayout
         android:id="@+id/topRelativeLayout"
         android:layout_width="match_parent"
@@ -30,7 +39,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginRight="15dp"
             android:layout_toRightOf="@id/imageBankIcon"
-            android:text="Matoshri Valbai Mulji Shah, Arpan Blood Bank"
+            android:text="Hospital Name"
             android:textColor="@color/black"
             android:textSize="35sp"
             android:textStyle="bold" />
@@ -75,7 +84,7 @@
             android:layout_marginTop="2dp"
             android:layout_marginRight="15dp"
             android:layout_toRightOf="@id/imageLocation"
-            android:text="Aniraj Tower, 2nd Floor, Janta Markat, Opp Metro Mall, L.B.S Marg, Bhandup (W),, Mumbai, Maharashtra"
+            android:text=""
             android:textSize="20sp"
             />
 
@@ -117,7 +126,7 @@
             android:layout_marginTop="2dp"
             android:layout_marginRight="15dp"
             android:layout_toRightOf="@id/imagePhone"
-            android:text="9999999999"
+            android:text=""
             android:textSize="20sp" />
         <View
             android:layout_below="@+id/textMobileNo"
@@ -157,7 +166,7 @@
             android:layout_marginTop="2dp"
             android:layout_marginRight="15dp"
             android:layout_toRightOf="@id/imageEmail"
-            android:text="testemail@gmail.com"
+            android:text=""
             android:textSize="20sp" />
         <View
             android:layout_below="@+id/textEmailId"
