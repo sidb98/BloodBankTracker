@@ -87,7 +87,7 @@ public class ShowbbDB extends AppCompatActivity {
                 BloodGroups WHB=dataSnapshot.child(MainActivity.bbref).child("WholeHumanBlood").getValue(BloodGroups.class);
                 BloodGroups PRBC=dataSnapshot.child(MainActivity.bbref).child("PackedRBC").getValue(BloodGroups.class);
                 BloodGroups PC=dataSnapshot.child(MainActivity.bbref).child("PlateletConcentration").getValue(BloodGroups.class);
-                BloodGroups AHF=dataSnapshot.child(MainActivity.bbref).child("AntiHemophilicFactor").getValue(BloodGroups.class);
+                BloodGroups AHF=dataSnapshot.child(MainActivity.bbref).child("AntiHaemophilicFactor").getValue(BloodGroups.class);
                 BloodGroups FFP=dataSnapshot.child(MainActivity.bbref).child("FreshFrozenPlasma").getValue(BloodGroups.class);
 
                 int whbsum=WHB.AP+WHB.AN+WHB.BP+WHB.BN+WHB.ABP+WHB.ABN+WHB.OP+WHB.ON;

@@ -25,8 +25,10 @@ public class LoginActivity extends AppCompatActivity {
     private TextInputEditText editEmailId;
     private TextInputEditText editPassword;
     private FirebaseAuth mAuth;
-    static String password;
 
+
+    public static boolean flagWarning;
+    static String password;
     ProgressBar progressBar;
 
     @Override
@@ -64,6 +66,8 @@ public class LoginActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressBar.setVisibility(View.VISIBLE);
                                 if (task.isSuccessful() && password.equals(initialPassword)) {
+                                    flagWarning = true;
+                                    Log.d("FlagHide", "onComplete: Opening ResetActivity " +flagWarning);
                                     Intent intent = new Intent(LoginActivity.this, ResetPasswordActivity.class);
                                     //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     //Intent intent=new Intent(LoginActivity.this,UpdateDB.class);
@@ -72,6 +76,8 @@ public class LoginActivity extends AppCompatActivity {
 
                                 }
                                 else if (task.isSuccessful() && !password.equals(initialPassword)) {
+                                    flagWarning = false;
+                                    Log.d("FlagHide", "onComplete: Opening ProfileActivity " +flagWarning);
                                     Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
                                     //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     finish();
@@ -79,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                 }
                                 else {
-                                    Toast.makeText(LoginActivity.this, "Invalid EmailId or Password entered",
+                                    Toast.makeText(LoginActivity.this, "Invalid Email Id or Password ",
                                             Toast.LENGTH_LONG).show();
                                     progressBar.setVisibility(View.GONE);
                                 }

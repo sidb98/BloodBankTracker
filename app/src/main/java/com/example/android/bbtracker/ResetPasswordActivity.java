@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -22,6 +23,8 @@ public class ResetPasswordActivity extends AppCompatActivity {
     private EditText editCurrentPassword, editNewPassword, editConfirmPassword;
     private FirebaseUser currentUser;
 
+    private TextView warningText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,13 +33,22 @@ public class ResetPasswordActivity extends AppCompatActivity {
         editNewPassword = findViewById(R.id.editNewPassword);
         editConfirmPassword = findViewById(R.id.editConfirmPassword);
         editCurrentPassword = findViewById(R.id.editCurrentPassword);
+        warningText = findViewById(R.id.warningText);
+        if(LoginActivity.flagWarning) {
+            Log.d("FlagHide", "onCreate: Reset Flag warning Visible(1)"+ LoginActivity.flagWarning);
+            warningText.setVisibility(View.VISIBLE);
+        } else {
+            Log.d("FlagHide", "onCreate: Reset Flag warning Visible(2)"+ LoginActivity.flagWarning);
+            warningText.setVisibility(View.GONE);
+        }
+
 
 //        if (LoginActivity.password.equals("QAZWSX")) {
 //            Toast.makeText(ResetPasswordActivity.this, "Change password after first login",
 //                    Toast.LENGTH_LONG).show();
 //        }
 
-        findViewById(R.id.buttonSendEmailLink).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.buttonUpdatePassword).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String currentPassword = editCurrentPassword.getText().toString();
@@ -55,7 +67,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
                     return;
                 }
                 if (newPassword.length() < 6) {
-                    editNewPassword.setError("Password must contain atleast 6 characters");
+                    editNewPassword.setError("Password must contain at least 6 characters");
                     editNewPassword.requestFocus();
                     return;
                 }
@@ -81,22 +93,23 @@ public class ResetPasswordActivity extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()) {
-                                            Toast.makeText(ResetPasswordActivity.this, "Password Updated",
+                                            Toast.makeText(ResetPasswordActivity.this, "Password changed successfully",
                                                     Toast.LENGTH_SHORT).show();
                                             //FirebaseDatabase.getInstance().getReference().child("BBDetails").child(firmNumber)
                                             Log.d("ResetPassword", "Password Changed");
+                                            warningText.setVisibility(View.GONE);
                                             Intent intent = new Intent(ResetPasswordActivity.this, ProfileActivity.class);
                                             finish();
                                             startActivity(intent);
                                         } else {
-                                            Toast.makeText(ResetPasswordActivity.this, "Error Occurred\nPassword not updated ",
+                                            Toast.makeText(ResetPasswordActivity.this, "Old password is incorrect ",
                                                     Toast.LENGTH_SHORT).show();
                                             Log.d("Password Error", "Error auth failed");
                                         }
                                     }
                                 });
                             } else {
-                                Toast.makeText(ResetPasswordActivity.this, "Error Occurred\nPassword not updated ",
+                                Toast.makeText(ResetPasswordActivity.this, "Error occurred while changing password ",
                                         Toast.LENGTH_SHORT).show();
                                 Log.d("Password Error", "Error auth failed");
                             }

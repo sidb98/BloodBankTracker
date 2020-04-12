@@ -96,7 +96,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="30dp"
-                android:background="@drawable/rounded_login"
+                android:background="@drawable/rounded_blue_button"
                 android:text="Update"
                 android:textColor="@color/white" />
 

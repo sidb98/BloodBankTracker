@@ -162,7 +162,7 @@ public class tab2 extends Fragment {
                     BloodGroups WHB=dataSnapshot.child(userid).child("WholeHumanBlood").getValue(BloodGroups.class);
                     BloodGroups PRBC=dataSnapshot.child(userid).child("PackedRBC").getValue(BloodGroups.class);
                     BloodGroups PC=dataSnapshot.child(userid).child("PlateletConcentration").getValue(BloodGroups.class);
-                    BloodGroups AHF=dataSnapshot.child(userid).child("AntiHemophilicFactor").getValue(BloodGroups.class);
+                    BloodGroups AHF=dataSnapshot.child(userid).child("AntiHaemophilicFactor").getValue(BloodGroups.class);
                     BloodGroups FFP=dataSnapshot.child(userid).child("FreshFrozenPlasma").getValue(BloodGroups.class);
                    
                     whbap.setText(Integer.toString(WHB.AP));
@@ -297,7 +297,7 @@ public class tab2 extends Fragment {
                                 flag=1;
                             }
                         });
-                reff.child(userid).child("AntiHemophilicFactor").setValue(AHF)
+                reff.child(userid).child("AntiHaemophilicFactor").setValue(AHF)
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {

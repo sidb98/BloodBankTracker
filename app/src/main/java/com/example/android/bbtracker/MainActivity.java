@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                     BloodGroups WHB=snapshot1.child("WholeHumanBlood").getValue(BloodGroups.class);
                     BloodGroups PRBC=snapshot1.child("PackedRBC").getValue(BloodGroups.class);
                     BloodGroups PC=snapshot1.child("PlateletConcentration").getValue(BloodGroups.class);
-                    BloodGroups AHF=snapshot1.child("AntiHemophilicFactor").getValue(BloodGroups.class);
+                    BloodGroups AHF=snapshot1.child("AntiHaemophilicFactor").getValue(BloodGroups.class);
                     BloodGroups FFP=snapshot1.child("FreshFrozenPlasma").getValue(BloodGroups.class);
 
                     whbl.add(WHB);
@@ -385,7 +385,7 @@ public class MainActivity extends AppCompatActivity {
                                 }
                                 break;
                             default:
-                                Toast.makeText(this,"Error Occured",Toast.LENGTH_LONG).show();
+                                Toast.makeText(this,"Error Occurred",Toast.LENGTH_LONG).show();
                         }
                         break;
                     case "Packed RBC":
@@ -454,7 +454,7 @@ public class MainActivity extends AppCompatActivity {
                                 }
                                 break;
                             default:
-                                Toast.makeText(this,"Error Occured",Toast.LENGTH_LONG).show();
+                                Toast.makeText(this,"Error Occurred",Toast.LENGTH_LONG).show();
                         }
                         break;
                     case "Platelet Concentration":
@@ -523,7 +523,7 @@ public class MainActivity extends AppCompatActivity {
                                 }
                                 break;
                             default:
-                                Toast.makeText(this,"Error Occured",Toast.LENGTH_LONG).show();
+                                Toast.makeText(this,"Error Occurred",Toast.LENGTH_LONG).show();
                         }
                         break;
                     case "Anti Hemophilic Factor":
@@ -592,7 +592,7 @@ public class MainActivity extends AppCompatActivity {
                                 }
                                 break;
                             default:
-                                Toast.makeText(this,"Error Occured",Toast.LENGTH_LONG).show();
+                                Toast.makeText(this,"Error Occurred",Toast.LENGTH_LONG).show();
                         }
                         break;
                     case "Fresh Frozen Plasma":
@@ -661,7 +661,7 @@ public class MainActivity extends AppCompatActivity {
                                 }
                                 break;
                             default:
-                                Toast.makeText(this,"Error Occured",Toast.LENGTH_LONG).show();
+                                Toast.makeText(this,"Error Occurred",Toast.LENGTH_LONG).show();
                         }
                         break;
                     default:

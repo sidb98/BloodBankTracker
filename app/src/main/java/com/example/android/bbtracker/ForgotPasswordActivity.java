@@ -27,7 +27,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         editForgotEmailId = findViewById(R.id.editForgotEmailId);
         mAuth = FirebaseAuth.getInstance();
 
-        findViewById(R.id.buttonSendEmailLink).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.buttonUpdatePassword).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String email = editForgotEmailId.getText().toString().trim();
@@ -42,7 +42,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()){
-                                Toast.makeText(ForgotPasswordActivity.this, "Password reset email sent!",
+                                Toast.makeText(ForgotPasswordActivity.this, "Reset link sent!",
                                         Toast.LENGTH_LONG).show();
                                 finish();
                                 Intent intent = new Intent(ForgotPasswordActivity.this, LoginActivity.class);
@@ -50,7 +50,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
                             }
                             else {
-                                Toast.makeText(ForgotPasswordActivity.this, "Email ID does not exist",
+                                Toast.makeText(ForgotPasswordActivity.this, "Email Id does not exist",
                                         Toast.LENGTH_LONG).show();
                             }
                         }

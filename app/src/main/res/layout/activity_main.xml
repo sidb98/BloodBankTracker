@@ -201,6 +201,7 @@
             android:layout_weight="1"
             android:entries="@array/Category_items"
             android:gravity="center"
+            android:popupBackground="@drawable/spinner_border"
             android:textAlignment="center"></Spinner>
 
         <TextView
@@ -224,6 +225,7 @@
             android:entries="@array/BG_items"
             android:gravity="center"
             android:textAlignment="center"
+            android:popupBackground="@drawable/spinner_border"
             android:visibility="invisible"></Spinner>
     </LinearLayout>
 
