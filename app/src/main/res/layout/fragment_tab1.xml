@@ -11,10 +11,11 @@
         android:id="@+id/progress_circular"
         android:layout_width="wrap_content"
         android:layout_height="37dp"
+        android:layout_centerInParent="true"
         android:layout_gravity="center"
         android:layout_margin="20dp"
-        android:layout_centerInParent="true"
         android:visibility="visible" />
+
     <RelativeLayout
         android:id="@+id/topRelativeLayout"
         android:layout_width="match_parent"
@@ -50,8 +51,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/topRelativeLayout"
-        android:layout_marginTop="15dp"
         android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
         android:layout_marginRight="15dp"
         android:padding="1dp">
 
@@ -59,8 +60,8 @@
             android:id="@+id/imageLocation"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="15dp"
             android:layout_alignTop="@id/tagAddress"
+            android:layout_marginLeft="15dp"
             android:src="@drawable/location" />
 
         <TextView
@@ -71,9 +72,9 @@
             android:layout_marginTop="5dp"
             android:layout_toRightOf="@id/imageLocation"
             android:text="Address"
-            android:textStyle="bold"
             android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textAddress"
@@ -85,13 +86,12 @@
             android:layout_marginRight="15dp"
             android:layout_toRightOf="@id/imageLocation"
             android:text=""
-            android:textSize="20sp"
-            />
+            android:textSize="20sp" />
 
         <View
-            android:layout_below="@+id/textAddress"
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:layout_below="@+id/textAddress"
             android:layout_margin="10dp"
             android:background="@android:color/black" />
 
@@ -100,8 +100,8 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_below="@id/textAddress"
-            android:layout_marginLeft="20dp"
             android:layout_alignTop="@+id/tagPhone"
+            android:layout_marginLeft="20dp"
             android:src="@drawable/phone" />
 
         <TextView
@@ -113,9 +113,9 @@
             android:layout_marginTop="20dp"
             android:layout_toRightOf="@id/imagePhone"
             android:text="Phone "
-            android:textStyle="bold"
             android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textMobileNo"
@@ -125,13 +125,41 @@
             android:layout_alignLeft="@id/tagPhone"
             android:layout_marginTop="2dp"
             android:layout_marginRight="15dp"
+            android:layout_toLeftOf="@id/phoneToggleButton"
             android:layout_toRightOf="@id/imagePhone"
             android:text=""
             android:textSize="20sp" />
+
+        <ToggleButton
+            android:id="@+id/phoneToggleButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@id/tagPhone"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/edit_text_icon"
+            android:textOff=""
+            android:textOn="" />
+
+        <EditText
+            android:id="@+id/editTextPhone"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tagPhone"
+            android:layout_alignLeft="@id/tagPhone"
+            android:layout_marginRight="15dp"
+            android:layout_toLeftOf="@id/phoneToggleButton"
+            android:background="@drawable/rectangle_edittext_gray"
+            android:inputType="number"
+            android:maxLength="10"
+            android:maxLines="1"
+            android:padding="5dp"
+            android:visibility="invisible" />
+
         <View
-            android:layout_below="@+id/textMobileNo"
+            android:id="@+id/viewPhone"
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:layout_below="@+id/textMobileNo"
             android:layout_margin="10dp"
             android:background="@android:color/black" />
 
@@ -140,8 +168,8 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_below="@id/textMobileNo"
-            android:layout_marginLeft="20dp"
             android:layout_alignTop="@id/tagEmailId"
+            android:layout_marginLeft="20dp"
             android:src="@drawable/gmail" />
 
         <TextView
@@ -153,9 +181,9 @@
             android:layout_marginTop="20dp"
             android:layout_toRightOf="@id/imageEmail"
             android:text="Email "
-            android:textStyle="bold"
             android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textEmailId"
@@ -165,16 +193,43 @@
             android:layout_alignLeft="@id/tagEmailId"
             android:layout_marginTop="2dp"
             android:layout_marginRight="15dp"
+            android:layout_toLeftOf="@id/emailToggleButton"
             android:layout_toRightOf="@id/imageEmail"
             android:text=""
             android:textSize="20sp" />
+
+        <ToggleButton
+            android:id="@+id/emailToggleButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@id/tagEmailId"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/edit_text_icon"
+            android:textOff=""
+            android:textOn="" />
+
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tagEmailId"
+            android:layout_alignLeft="@id/tagEmailId"
+            android:layout_marginRight="15dp"
+            android:layout_toLeftOf="@id/emailToggleButton"
+            android:background="@drawable/rectangle_edittext_gray"
+            android:inputType="textEmailAddress"
+            android:padding="5dp"
+            android:visibility="invisible" />
+
+
         <View
-            android:layout_below="@+id/textEmailId"
+            android:id="@+id/viewEmail"
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:layout_below="@+id/textEmailId"
             android:layout_margin="10dp"
-
             android:background="@android:color/black" />
+
 
     </RelativeLayout>
 

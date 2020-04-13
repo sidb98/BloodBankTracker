@@ -6,10 +6,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -66,10 +70,13 @@ public class tab1 extends Fragment {
         return fragment;
     }
 
-    TextView bbname,bbphoneno,bbaddress,bbemail;
+    TextView bbname, bbphoneno, bbaddress, bbemail;
     String userid;
     RelativeLayout relativeParentLayout;
     ProgressBar progressBar;
+    ToggleButton emailToggleButton, phoneToggleButton;
+    EditText editTextPhone, editTextEmail;
+    View viewEmail;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -84,33 +91,41 @@ public class tab1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v=inflater.inflate(R.layout.fragment_tab1, container, false);
+        View v = inflater.inflate(R.layout.fragment_tab1, container, false);
 
 //        relativeParentLayout = v.findViewById(R.id.tab1ParentLayout);
 //        relativeParentLayout.setVisibility(View.GONE);
         progressBar = v.findViewById(R.id.progress_circular);
         progressBar.setVisibility(View.VISIBLE);
 
-        bbname=(TextView)v.findViewById(R.id.textHospitalName);
-        bbaddress=(TextView)v.findViewById(R.id.textAddress);
-        bbphoneno=(TextView)v.findViewById(R.id.textMobileNo);
-        bbemail=(TextView)v.findViewById(R.id.textEmailId);
+        bbname = (TextView) v.findViewById(R.id.textHospitalName);
+        bbaddress = (TextView) v.findViewById(R.id.textAddress);
+        bbphoneno = (TextView) v.findViewById(R.id.textMobileNo);
+        bbemail = (TextView) v.findViewById(R.id.textEmailId);
 
-        userid=FirebaseAuth.getInstance().getCurrentUser().getUid();;
+        editTextPhone = v.findViewById(R.id.editTextPhone);
+        editTextEmail = v.findViewById(R.id.editTextEmail);
+        emailToggleButton = v.findViewById(R.id.emailToggleButton);
+        phoneToggleButton = v.findViewById(R.id.phoneToggleButton);
 
-        final DatabaseReference reff= FirebaseDatabase.getInstance().getReference().child("BloodBankDetails");
+        viewEmail = v.findViewById(R.id.viewEmail);
+
+        userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        ;
+
+        final DatabaseReference reff = FirebaseDatabase.getInstance().getReference().child("BloodBankDetails");
 
         reff.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                BBDetails bb=dataSnapshot.child(userid).getValue(BBDetails.class);
+                BBDetails bb = dataSnapshot.child(userid).getValue(BBDetails.class);
 //                relativeParentLayout.setVisibility(View.VISIBLE);
                 progressBar.setVisibility(View.GONE);
                 bbname.setText(bb.Name);
                 bbaddress.setText(bb.Address);
-                String tempNumber=bb.PhoneNumber;
-                if(tempNumber.isEmpty())
-                    tempNumber="Not Available";
+                String tempNumber = bb.PhoneNumber;
+                if (tempNumber.isEmpty())
+                    tempNumber = "Not Available";
                 bbphoneno.setText(tempNumber);
                 bbemail.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());
             }
@@ -120,7 +135,36 @@ public class tab1 extends Fragment {
 
             }
         });
+        phoneToggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (isChecked) {
+                    bbphoneno.setVisibility(View.INVISIBLE);
+                    editTextPhone.setVisibility(View.VISIBLE);
 
+                } else {
+                    bbphoneno.setVisibility(View.VISIBLE);
+                    editTextPhone.setVisibility(View.GONE);
+                }
+            }
+        });
+
+        emailToggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if(isChecked) {
+                    bbemail.setVisibility(View.INVISIBLE);
+                    viewEmail.setVisibility(View.GONE);
+                    editTextEmail.setVisibility(View.VISIBLE);
+                }else {
+                    bbemail.setVisibility(View.VISIBLE);
+                    viewEmail.setVisibility(View.VISIBLE);
+                    editTextEmail.setVisibility(View.GONE);
+
+                }
+
+            }
+        });
 
         return v;
     }

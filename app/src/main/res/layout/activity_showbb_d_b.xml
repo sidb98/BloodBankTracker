@@ -25,11 +25,7 @@
                 app:inner_view="@layout/list_layout_whb"
                 app:startExpanded="false"
                 app:title="@string/WHB" />
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_margin="5dp"
-                android:background="@android:color/darker_gray"/>
+
 
             <com.alespero.expandablecardview.ExpandableCardView
                 android:id="@+id/cardViewPRBC"
@@ -40,11 +36,7 @@
                 app:inner_view="@layout/list_layout_prbc"
                 app:startExpanded="false"
                 app:title="@string/PRBC" />
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_margin="5dp"
-                android:background="@android:color/darker_gray"/>
+
             <com.alespero.expandablecardview.ExpandableCardView
                 android:id="@+id/cardViewPC"
                 android:layout_width="wrap_content"
@@ -54,11 +46,7 @@
                 app:inner_view="@layout/list_layout_pc"
                 app:startExpanded="false"
                 app:title="@string/PC" />
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_margin="5dp"
-                android:background="@android:color/darker_gray"/>
+
             <com.alespero.expandablecardview.ExpandableCardView
                 android:id="@+id/cardViewAHF"
                 android:layout_width="wrap_content"
@@ -68,11 +56,7 @@
                 app:inner_view="@layout/list_layout_ahf"
                 app:startExpanded="false"
                 app:title="@string/AHF" />
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_margin="5dp"
-                android:background="@android:color/darker_gray"/>
+
             <com.alespero.expandablecardview.ExpandableCardView
                 android:id="@+id/cardViewFFP"
                 android:layout_width="wrap_content"
@@ -84,11 +68,7 @@
                 app:title="@string/FFP"
 
                 />
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_margin="5dp"
-                android:background="@android:color/darker_gray"/>
+
 
         </LinearLayout>
     </ScrollView>

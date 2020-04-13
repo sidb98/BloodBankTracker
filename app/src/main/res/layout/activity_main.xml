@@ -172,7 +172,7 @@
             android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:background="@drawable/rectangle_edittext"
-            android:hint="Find Blood Bank, Zones "
+            android:hint="Search Blood Bank or Zones "
             android:padding="10dp" />
 
     </LinearLayout>
@@ -253,13 +253,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="10dp"
         android:top="@+id/txt" />
-    <!--<Button
-        android:id="@+id/buttonDisplayDB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="DisplayDB"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"/>-->
+
 
 
 </LinearLayout>

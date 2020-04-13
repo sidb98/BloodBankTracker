@@ -24,11 +24,7 @@
                 app:expandOnClick="true"
                 app:inner_view="@layout/whole_blood"
                 app:title="@string/WHB" />
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_margin="5dp"
-                android:background="@android:color/darker_gray"/>
+
 
             <com.alespero.expandablecardview.ExpandableCardView
                 android:id="@+id/cardViewPRBC"
@@ -39,11 +35,7 @@
                 app:inner_view="@layout/packed_rbc"
                 app:startExpanded="false"
                 app:title="@string/PRBC" />
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_margin="5dp"
-                android:background="@android:color/darker_gray"/>
+
 
             <com.alespero.expandablecardview.ExpandableCardView
                 android:id="@+id/cardViewPC"
@@ -54,11 +46,7 @@
                 app:inner_view="@layout/platelet_conc"
                 app:startExpanded="false"
                 app:title="@string/PC" />
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_margin="5dp"
-                android:background="@android:color/darker_gray"/>
+
 
             <com.alespero.expandablecardview.ExpandableCardView
                 android:id="@+id/cardViewAHF"
@@ -69,11 +57,7 @@
                 app:inner_view="@layout/anti_hf"
                 app:startExpanded="false"
                 app:title="@string/AHF" />
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_margin="5dp"
-                android:background="@android:color/darker_gray"/>
+
 
             <com.alespero.expandablecardview.ExpandableCardView
                 android:id="@+id/cardViewFFP"
