@@ -152,6 +152,11 @@ public class UpdateDB extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
+                emailid.setText("");
+                name.setText("");
+                phonenumber.setText("");
+                address.setText("");
+                zone.setText("");
                 if(FirebaseAuth.getInstance().getCurrentUser()!=null)
                     Toast.makeText(UpdateDB.this,"Sign out Failed", Toast.LENGTH_LONG).show();
                 else
