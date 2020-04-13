@@ -19,12 +19,16 @@ public class ShowbbDB extends AppCompatActivity {
             prbcap,prbcan,prbcbp,prbcbn,prbcabp,prbcabn,prbcop,prbcon,
             pcap,pcan,pcbp,pcbn,pcabp,pcabn,pcop,pcon,
             ahfap,ahfan,ahfbp,ahfbn,ahfabp,ahfabn,ahfop,ahfon,
-            ffpap,ffpan,ffpbp,ffpbn,ffpabp,ffpabn,ffpop,ffpon;
+            ffpap,ffpan,ffpbp,ffpbn,ffpabp,ffpabn,ffpop,ffpon,
+            bbname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_showbb_d_b);
+
+        bbname=(TextView)findViewById(R.id.textbbname);
+        bbname.setText(MainActivity.bbnameref);
 
         final ExpandableCardView whbcard = findViewById(R.id.cardViewWHB);
         final ExpandableCardView prbccard = findViewById(R.id.cardViewPRBC);

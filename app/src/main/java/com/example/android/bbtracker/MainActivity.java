@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
     ListView bblistview;
     DatabaseReference reff= FirebaseDatabase.getInstance().getReference();
     DatabaseReference bbdreff= FirebaseDatabase.getInstance().getReference().child("BloodBankDetails");
-    static String bbref;
+    static String bbref,bbnameref;
     TextView whbcount,prbccount,pccount,ahfcount,ffpcount,tvbg;
     EditText search;
     BBListAdapter BBArrayAdapter;
@@ -226,6 +226,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 bbref=tempuids.get(i);
+                bbnameref=tempbbname.get(i).BBName;
                 Intent myIntent=new Intent(MainActivity.this,ShowbbDB.class);
                 startActivity(myIntent);
             }
