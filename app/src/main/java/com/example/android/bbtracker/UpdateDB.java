@@ -59,7 +59,7 @@ public class UpdateDB extends AppCompatActivity {
         emailid = findViewById(R.id.txtEmail);
         mAuth = FirebaseAuth.getInstance();
 
-        final String oldpassword = "QAZWSX";
+        final String oldpassword = LoginActivity.initialPassword;
 
 
         findViewById(R.id.signup).setOnClickListener(new View.OnClickListener() {

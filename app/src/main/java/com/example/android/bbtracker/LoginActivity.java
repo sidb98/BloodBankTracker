@@ -30,6 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     public static boolean flagWarning;
     static String password;
     ProgressBar progressBar;
+    static String initialPassword = "sRxqQBqUd";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
         progressBar.setVisibility(View.GONE);
         mAuth = FirebaseAuth.getInstance();
 
-        final String initialPassword = "QAZWSX";
+
         findViewById(R.id.buttonLogin).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
