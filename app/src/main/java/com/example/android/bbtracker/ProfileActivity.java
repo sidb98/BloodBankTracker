@@ -98,4 +98,13 @@ public class ProfileActivity extends AppCompatActivity implements tab1.OnFragmen
         }
         return true;
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        finish();
+        startActivity(intent);
+    }
 }

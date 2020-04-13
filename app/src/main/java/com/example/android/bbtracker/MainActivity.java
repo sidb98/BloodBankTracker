@@ -76,13 +76,11 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
         bblistview=(ListView)findViewById(R.id.BBListView);
-
         BBArrayAdapter=new BBListAdapter(this,R.layout.adapter_view_bbdetails,tempbbname);
 
         progressBar=findViewById(R.id.progress_circular);
-        progressBar.setVisibility(View.VISIBLE);
+
 
         categoryspinner=findViewById(R.id.categoryspinner);
         bgspinner=findViewById(R.id.bgspinner);
@@ -96,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
         ahfcount=(TextView)findViewById(R.id.ahfcount);
         ffpcount=(TextView)findViewById(R.id.ffpcount);
 
+        progressBar.setVisibility(View.VISIBLE);
         reff.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
