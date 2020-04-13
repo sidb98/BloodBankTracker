@@ -13,8 +13,12 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -89,7 +93,7 @@ public class tab1 extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             final Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_tab1, container, false);
 
@@ -111,9 +115,10 @@ public class tab1 extends Fragment {
         viewEmail = v.findViewById(R.id.viewEmail);
 
         userid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        ;
+
 
         final DatabaseReference reff = FirebaseDatabase.getInstance().getReference().child("BloodBankDetails");
+        final FirebaseAuth userreff=FirebaseAuth.getInstance();
 
         reff.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -125,7 +130,7 @@ public class tab1 extends Fragment {
                 bbaddress.setText(bb.Address);
                 String tempNumber = bb.PhoneNumber;
                 if (tempNumber.isEmpty())
-                    tempNumber = "Not Available";
+                    tempNumber = "NA";
                 bbphoneno.setText(tempNumber);
                 bbemail.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());
             }
@@ -139,12 +144,40 @@ public class tab1 extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if (isChecked) {
+                    String phoneno=bbphoneno.getText().toString().trim();
+                    editTextPhone.setText(phoneno);
                     bbphoneno.setVisibility(View.INVISIBLE);
                     editTextPhone.setVisibility(View.VISIBLE);
+                    phoneToggleButton.setBackgroundResource(R.drawable.tick);
 
                 } else {
-                    bbphoneno.setVisibility(View.VISIBLE);
-                    editTextPhone.setVisibility(View.GONE);
+
+                    final String phoneno=editTextPhone.getText().toString().trim();
+                    String phonePattern="[0-9]{10}";
+                    if(!phoneno.matches(phonePattern)){
+                        Toast.makeText(getActivity(),"Invalid phone number!",Toast.LENGTH_LONG).show();
+                    }
+                    else {
+                        reff.child(userreff.getCurrentUser().getUid()).child("PhoneNumber").setValue(phoneno).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getActivity(), "Phone number changed successfully!", Toast.LENGTH_LONG).show();
+                                    bbphoneno.setText(phoneno);
+                                    bbphoneno.setVisibility(View.VISIBLE);
+                                    editTextPhone.setVisibility(View.GONE);
+                                    phoneToggleButton.setBackgroundResource(R.drawable.edit_text_icon);
+
+                                } else {
+                                    Toast.makeText(getActivity(), "Failed to update phone number!", Toast.LENGTH_LONG).show();
+                                    bbphoneno.setVisibility(View.VISIBLE);
+                                    editTextPhone.setVisibility(View.GONE);
+                                    phoneToggleButton.setBackgroundResource(R.drawable.edit_text_icon);
+
+                                }
+                            }
+                        });
+                    }
                 }
             }
         });
@@ -153,14 +186,42 @@ public class tab1 extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if(isChecked) {
+                    String email=bbemail.getText().toString().trim();
+                    editTextEmail.setText(email);
                     bbemail.setVisibility(View.INVISIBLE);
                     viewEmail.setVisibility(View.GONE);
                     editTextEmail.setVisibility(View.VISIBLE);
+                    emailToggleButton.setBackgroundResource(R.drawable.tick);
                 }else {
-                    bbemail.setVisibility(View.VISIBLE);
-                    viewEmail.setVisibility(View.VISIBLE);
-                    editTextEmail.setVisibility(View.GONE);
+                    final String email=editTextEmail.getText().toString().trim();
+                    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+                    if(!email.matches(emailPattern)){
+                        Toast.makeText(getActivity(),"Invalid EmailID!",Toast.LENGTH_LONG).show();
+                    }
+                    else {
+                        userreff.getCurrentUser().updateEmail(email)
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                            Toast.makeText(getActivity(), "Email changed successfully!", Toast.LENGTH_LONG).show();
+                                            bbemail.setText(email);
+                                            bbemail.setVisibility(View.VISIBLE);
+                                            viewEmail.setVisibility(View.VISIBLE);
+                                            editTextEmail.setVisibility(View.GONE);
+                                            emailToggleButton.setBackgroundResource(R.drawable.edit_text_icon);
 
+                                        } else {
+                                            Toast.makeText(getActivity(), "Failed to update email!", Toast.LENGTH_LONG).show();
+                                            bbemail.setVisibility(View.VISIBLE);
+                                            viewEmail.setVisibility(View.VISIBLE);
+                                            editTextEmail.setVisibility(View.GONE);
+                                            emailToggleButton.setBackgroundResource(R.drawable.edit_text_icon);
+
+                                        }
+                                    }
+                                });
+                    }
                 }
 
             }
