@@ -159,13 +159,17 @@ public class MainActivity extends AppCompatActivity {
                 if(categoryspinner.getSelectedItem().toString().trim().compareTo("None")==0){
                     bgspinner.setVisibility(View.INVISIBLE);
                     tvbg.setVisibility(View.INVISIBLE);
-                    updateList(search.getText().toString().trim(),categoryspinner.getSelectedItem().toString().trim(),bgspinner.getSelectedItem().toString().trim());
+                    updateList(search.getText().toString().trim().toLowerCase().replaceAll("\\s","")
+                            ,categoryspinner.getSelectedItem().toString().trim()
+                            ,bgspinner.getSelectedItem().toString().trim());
                     BBArrayAdapter.notifyDataSetChanged();
                 }
                 else{
                     bgspinner.setVisibility(View.VISIBLE);
                     tvbg.setVisibility(View.VISIBLE);
-                    updateList(search.getText().toString().trim(),categoryspinner.getSelectedItem().toString().trim(),bgspinner.getSelectedItem().toString().trim());
+                    updateList(search.getText().toString().trim().toLowerCase().replaceAll("\\s","")
+                            ,categoryspinner.getSelectedItem().toString().trim()
+                            ,bgspinner.getSelectedItem().toString().trim());
                     BBArrayAdapter.notifyDataSetChanged();
                 }
 
@@ -181,7 +185,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if(tvbg.getVisibility()==View.VISIBLE){
-                    updateList(search.getText().toString().trim(),categoryspinner.getSelectedItem().toString().trim()
+                    updateList(search.getText().toString().trim().toLowerCase().replaceAll("\\s","")
+                            ,categoryspinner.getSelectedItem().toString().trim()
                             ,bgspinner.getSelectedItem().toString().trim());
                     BBArrayAdapter.notifyDataSetChanged();
                 }
@@ -208,12 +213,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
                 if(!editable.toString().isEmpty()){
-                    updateList(editable.toString().trim(),categoryspinner.getSelectedItem().toString().trim()
+                    updateList(editable.toString().trim().toLowerCase().replaceAll("\\s","")
+                            ,categoryspinner.getSelectedItem().toString().trim()
                             ,bgspinner.getSelectedItem().toString().trim());
                     BBArrayAdapter.notifyDataSetChanged();
                 }
                 else{
-                    updateList(editable.toString().trim(),categoryspinner.getSelectedItem().toString().trim()
+                    updateList(editable.toString().trim().toLowerCase().replaceAll("\\s","")
+                            ,categoryspinner.getSelectedItem().toString().trim()
                             ,bgspinner.getSelectedItem().toString().trim());
                     BBArrayAdapter.notifyDataSetChanged();
                 }
@@ -321,7 +328,6 @@ public class MainActivity extends AppCompatActivity {
         tempbbname.clear();
         tempzone.clear();
         tempphoneno.clear();
-        searchstring.toLowerCase().replaceAll("\\s","");
         for(int i=0;i<bbname.size();i++){
 
             if (bbname.get(i).BBName.toLowerCase().replaceAll("\\s","").contains(searchstring) ||
