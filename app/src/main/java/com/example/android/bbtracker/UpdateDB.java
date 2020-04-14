@@ -134,7 +134,15 @@ public class UpdateDB extends AppCompatActivity {
                         FirebaseDatabase.getInstance().getReference().child("BloodBankDetails")
                                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(details);
                         FirebaseDatabase.getInstance().getReference().child("PacketTracker")
-                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(bg);
+                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("WholeHumanBlood").setValue(bg);
+                        FirebaseDatabase.getInstance().getReference().child("PacketTracker")
+                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("PackedRBC").setValue(bg);
+                        FirebaseDatabase.getInstance().getReference().child("PacketTracker")
+                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("PlateletConcentration").setValue(bg);
+                        FirebaseDatabase.getInstance().getReference().child("PacketTracker")
+                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("AntiHaemophilicFactor").setValue(bg);
+                        FirebaseDatabase.getInstance().getReference().child("PacketTracker")
+                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("FreshFrozenPlasma").setValue(bg);
                         FirebaseDatabase.getInstance().getReference().child("PacketTracker")
                                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("LastUpdated").setValue(date0)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
