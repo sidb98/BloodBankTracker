@@ -86,6 +86,7 @@ public class AddPacketTracker extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
+                emailid.setText("");
                 if(FirebaseAuth.getInstance().getCurrentUser()!=null)
                     Toast.makeText(AddPacketTracker.this,"Sign out Failed", Toast.LENGTH_LONG).show();
                 else
