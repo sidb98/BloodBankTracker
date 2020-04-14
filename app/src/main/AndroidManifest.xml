@@ -11,18 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".AddPacketTracker"></activity>
         <activity android:name=".ShowbbDB" />
         <activity android:name=".ResetPasswordActivity" />
         <activity android:name=".ForgotPasswordActivity" />
         <activity
             android:name=".ProfileActivity"
-            android:windowSoftInputMode="adjustPan"
-            android:theme="@style/NoActionBarTheme" />
+            android:theme="@style/NoActionBarTheme"
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".UpdateDB" />
-        <activity android:name=".MainActivity"
-            android:theme="@style/NoActionBarTheme">
-        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/NoActionBarTheme"></activity>
         <activity
             android:name=".SplashScreen"
             android:theme="@style/NoActionBarTheme">

@@ -128,8 +128,15 @@ public class UpdateDB extends AppCompatActivity {
                 }
                 else {
                     BBDetails details = new BBDetails(namev, phoneno, addressv, zonev);
-                    if (mAuth.getCurrentUser() != null)
-                        FirebaseDatabase.getInstance().getReference().child("BloodBankDetails").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(details)
+                    BloodGroups bg=new BloodGroups(0,0,0,0,0,0,0,0);
+                    String date0="00-00-0000";
+                    if (mAuth.getCurrentUser() != null) {
+                        FirebaseDatabase.getInstance().getReference().child("BloodBankDetails")
+                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(details);
+                        FirebaseDatabase.getInstance().getReference().child("PacketTracker")
+                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(bg);
+                        FirebaseDatabase.getInstance().getReference().child("PacketTracker")
+                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("LastUpdated").setValue(date0)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                           @Override
                                                           public void onSuccess(Void aVoid) {
@@ -142,8 +149,11 @@ public class UpdateDB extends AppCompatActivity {
                                 Toast.makeText(UpdateDB.this,"Update Unsuccessful", Toast.LENGTH_LONG).show();
                             }
                         });
+                    }
                     else
                         Toast.makeText(UpdateDB.this, "Sign in first", Toast.LENGTH_LONG).show();
+
+
                 }
             }
         });
@@ -166,4 +176,6 @@ public class UpdateDB extends AppCompatActivity {
         });
 
     };
+
+
 }

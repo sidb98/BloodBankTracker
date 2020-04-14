@@ -269,6 +269,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.buttonAddPT).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent=new Intent(MainActivity.this,AddPacketTracker.class);
+                startActivity(myIntent);
+            }
+        });
+
 //        findViewById(R.id.buttonDisplayDB).setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
