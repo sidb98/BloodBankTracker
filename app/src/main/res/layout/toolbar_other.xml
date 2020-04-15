@@ -7,4 +7,22 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
     android:padding="5dp">
 
+    <ImageView
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:src="@drawable/app_logo"
+        android:layout_below="@id/toolbar"
+        android:foregroundGravity="center"
+        android:layout_gravity="left"
+        android:background="@drawable/whitecircle" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:fontFamily="sans-serif-smallcaps"
+        android:paddingLeft="10dp"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="23sp" />
 </androidx.appcompat.widget.Toolbar>

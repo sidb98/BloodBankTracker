@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
@@ -11,13 +12,14 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_weight="40"
+        android:fontFamily="@font/montserrat_alternates"
         android:gravity="left"
         android:paddingLeft="10dp"
         android:paddingTop="10dp"
         android:text="TextView"
         android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textSize="20sp" />
+        android:textFontWeight="600"
+        android:textSize="18sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,20 +30,23 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:gravity="center"
             android:text="Last Updated:"
             android:textColor="@color/black"
             android:textAlignment="center"
-            android:textSize="16sp" />
+            android:gravity="bottom"
+            tools:ignore="RtlCompat"
+            android:textSize="14sp"
+             />
 
         <TextView
             android:id="@+id/tvlastupdated"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:gravity="center"
             android:text="No Data"
             android:textAlignment="center"
-            android:textSize="16sp" />
+            android:gravity="start"
+            tools:ignore="RtlCompat"
+            android:textSize="14sp" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="60dp"

@@ -173,13 +173,15 @@
             android:layout_weight="1"
             android:background="@drawable/rectangle_edittext"
             android:hint="Search Blood Bank or Zones "
-            android:padding="10dp" />
+            android:padding="10dp"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:orientation="horizontal">
@@ -188,6 +190,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:fontFamily="sans-serif-smallcaps"
             android:gravity="center"
             android:text="Category"
             android:textColor="@color/dark_blue"
@@ -209,6 +212,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:fontFamily="sans-serif-smallcaps"
             android:gravity="center"
             android:maxLines="2"
             android:text="Blood Group"
@@ -229,7 +233,7 @@
             android:visibility="invisible"></Spinner>
     </LinearLayout>
 
-    <LinearLayout
+   <!--- <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -246,7 +250,7 @@
         android:layout_height="wrap_content"
         android:text="Add User PT" />
 
-    </LinearLayout>
+    </LinearLayout>-->
     <ProgressBar
         android:id="@+id/progress_circular"
         android:layout_width="wrap_content"

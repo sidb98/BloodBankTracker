@@ -194,7 +194,7 @@ public class tab1 extends Fragment {
                     emailToggleButton.setBackgroundResource(R.drawable.tick);
                 }else {
                     final String email=editTextEmail.getText().toString().trim();
-                    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+                    String emailPattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$";
                     if(!email.matches(emailPattern)){
                         Toast.makeText(getActivity(),"Invalid EmailID!",Toast.LENGTH_LONG).show();
                     }

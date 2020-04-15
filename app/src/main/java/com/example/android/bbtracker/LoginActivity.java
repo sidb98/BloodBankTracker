@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String email = editEmailId.getText().toString().trim();
                 password = editPassword.getText().toString();
-                String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+                String emailPattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$";
                 if(email.isEmpty()){
                     editEmailId.setError("Enter Email Id");
                     editEmailId.requestFocus();

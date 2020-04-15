@@ -7,9 +7,12 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,6 +31,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+
 
 public class MainActivity extends AppCompatActivity {
     private FirebaseUser firebaseUser;
@@ -73,8 +77,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         FirebaseAuth.getInstance().signOut();
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         bblistview=(ListView)findViewById(R.id.BBListView);
         BBArrayAdapter=new BBListAdapter(this,R.layout.adapter_view_bbdetails,tempbbname);
@@ -199,6 +201,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         search=(EditText)findViewById(R.id.txtsearch);
+
+
         search.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -268,21 +272,21 @@ public class MainActivity extends AppCompatActivity {
             });
         }
 
-        findViewById(R.id.buttonAddUser).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent myIntent=new Intent(MainActivity.this,UpdateDB.class);
-                startActivity(myIntent);
-            }
-        });
-
-        findViewById(R.id.buttonAddPT).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent myIntent=new Intent(MainActivity.this,AddPacketTracker.class);
-                startActivity(myIntent);
-            }
-        });
+//        findViewById(R.id.buttonAddUser).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent myIntent=new Intent(MainActivity.this,UpdateDB.class);
+//                startActivity(myIntent);
+//            }
+//        });
+//
+//        findViewById(R.id.buttonAddPT).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent myIntent=new Intent(MainActivity.this,AddPacketTracker.class);
+//                startActivity(myIntent);
+//            }
+//        });
 
 //        findViewById(R.id.buttonDisplayDB).setOnClickListener(new View.OnClickListener() {
 //            @Override
