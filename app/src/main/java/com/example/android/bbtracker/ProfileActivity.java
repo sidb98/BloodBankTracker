@@ -104,8 +104,10 @@ public class ProfileActivity extends AppCompatActivity implements tab1.OnFragmen
     public void onBackPressed() {
         super.onBackPressed();
         Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
+        MainActivity.signoutflag=1;
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         finish();
+
         startActivity(intent);
     }
 }

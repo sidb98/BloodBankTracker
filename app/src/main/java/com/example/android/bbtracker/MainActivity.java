@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonLogin;
     private FirebaseAuth.AuthStateListener mAuthListner;
     private FirebaseAuth mAuth;
+    public static int signoutflag=0;
 
 
     ArrayList<LastUpdate> bbname=new ArrayList<>();
@@ -348,6 +349,17 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        if(signoutflag==0)
+            FirebaseAuth.getInstance().signOut();
+        else
+            signoutflag=0;
     }
     private void updateList(String searchstring,String category,String bg){
         tempuids.clear();
