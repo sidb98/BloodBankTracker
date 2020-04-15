@@ -10,12 +10,39 @@
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="4dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:text="Availibilty in Gr. Mumbai: "/>
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:text="DD-MM-YYYY"/>
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/totalLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/rectangle_border"
         android:orientation="vertical"
         android:padding="10dp">
@@ -172,7 +199,7 @@
             android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:background="@drawable/rectangle_edittext"
-            android:hint="Search Blood Bank or Zones "
+            android:hint="Search Blood Banks or Zones "
             android:padding="10dp"
             android:imeOptions="actionDone"
             android:singleLine="true"/>
@@ -188,9 +215,8 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:fontFamily="sans-serif-smallcaps"
             android:gravity="center"
             android:text="Category"
             android:textColor="@color/dark_blue"
@@ -210,16 +236,14 @@
         <TextView
             android:id="@+id/displaytvbg"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:fontFamily="sans-serif-smallcaps"
             android:gravity="center"
-            android:maxLines="2"
             android:text="Blood Group"
             android:textColor="@color/dark_blue"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:visibility="invisible" />
+            android:visibility="visible" />
 
         <Spinner
             android:id="@+id/bgspinner"
@@ -266,6 +290,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
         android:top="@+id/txt" />
 
 

@@ -30,7 +30,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -71,12 +74,15 @@ public class MainActivity extends AppCompatActivity {
     private int TotalWHB=0,TotalPRBC=0,TotalPC=0,TotalAHF=0,TotalFFP=0;
     ProgressBar progressBar;
     private Spinner categoryspinner,bgspinner;
+    TextView date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         FirebaseAuth.getInstance().signOut();
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         bblistview=(ListView)findViewById(R.id.BBListView);
         BBArrayAdapter=new BBListAdapter(this,R.layout.adapter_view_bbdetails,tempbbname);
@@ -95,6 +101,11 @@ public class MainActivity extends AppCompatActivity {
         pccount=(TextView)findViewById(R.id.pccount);
         ahfcount=(TextView)findViewById(R.id.ahfcount);
         ffpcount=(TextView)findViewById(R.id.ffpcount);
+
+        date = findViewById(R.id.date);
+        String currDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+        date.setText(currDate);
+
 
         progressBar.setVisibility(View.VISIBLE);
         reff.addListenerForSingleValueEvent(new ValueEventListener() {

@@ -12,37 +12,48 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="LockedOrientationActivity"
-        >
+        tools:ignore="LockedOrientationActivity">
         <activity
             android:name=".AddPacketTracker"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ShowbbDB"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ShowbbDB"
             android:screenOrientation="portrait"
-            />
-        <activity android:name=".ResetPasswordActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ForgotPasswordActivity"
-            android:screenOrientation="portrait"/>
+            android:label=""
+            android:theme="@style/NoActionBarTheme" />
+        <activity
+            android:name=".ResetPasswordActivity"
+            android:screenOrientation="portrait"
+            android:label=""
+            android:theme="@style/NoActionBarTheme" />
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:screenOrientation="portrait"
+            android:label=""
+            android:theme="@style/NoActionBarTheme" />
         <activity
             android:name=".ProfileActivity"
-            android:theme="@style/NoActionBarTheme"
             android:label=""
-            android:windowSoftInputMode="adjustPan"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".LoginActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".UpdateDB"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBarTheme"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait"
+            android:label=""
+            android:theme="@style/NoActionBarTheme" />
+        <activity
+            android:name=".UpdateDB"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
             android:label=""
-            android:theme="@style/NoActionBarTheme"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBarTheme"></activity>
         <activity
             android:name=".SplashScreen"
-            android:theme="@style/NoActionBarTheme"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
