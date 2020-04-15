@@ -62,7 +62,7 @@ public class AddPacketTracker extends AppCompatActivity {
                 DatabaseReference reff=FirebaseDatabase.getInstance().getReference().child("PacketTracker");
                 reff.child(userid).child("WholeHumanBlood").setValue(bg);
                 reff.child(userid).child("PackedRBC").setValue(bg);
-                reff.child(userid).child("PlateletConcentration").setValue(bg);
+                reff.child(userid).child("PlateletConcentrate").setValue(bg);
                 reff.child(userid).child("AntiHaemophilicFactor").setValue(bg);
                 reff.child(userid).child("FreshFrozenPlasma").setValue(bg);
                 reff.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("LastUpdated").setValue(date0)

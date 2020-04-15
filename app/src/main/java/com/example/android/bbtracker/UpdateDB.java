@@ -138,7 +138,7 @@ public class UpdateDB extends AppCompatActivity {
                         FirebaseDatabase.getInstance().getReference().child("PacketTracker")
                                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("PackedRBC").setValue(bg);
                         FirebaseDatabase.getInstance().getReference().child("PacketTracker")
-                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("PlateletConcentration").setValue(bg);
+                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("PlateletConcentrate").setValue(bg);
                         FirebaseDatabase.getInstance().getReference().child("PacketTracker")
                                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("AntiHaemophilicFactor").setValue(bg);
                         FirebaseDatabase.getInstance().getReference().child("PacketTracker")

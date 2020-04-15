@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">BBTracker</string>
+    <string name="app_name">One Blood</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="WHB"><b>Whole Human Blood</b></string>
     <string name="PRBC">Packed Red Blood Cell</string>
-    <string name="PC">Platelet Concentration</string>
+    <string name="PC">Platelet Concentrate</string>
     <string name="AHF">Anti Haemophilic Factor</string>
     <string name="FFP">Fresh Frozen Plasma</string>
 
@@ -11,7 +11,7 @@
         <item>None</item>
         <item>Whole Human Blood</item>
         <item>Packed RBC</item>
-        <item>Platelet Concentration</item>
+        <item>Platelet Concentrate</item>
         <item>Anti Hemophilic Factor</item>
         <item>Fresh Frozen Plasma</item>
     </string-array>

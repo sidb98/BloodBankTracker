@@ -1,11 +1,17 @@
 package com.example.android.bbtracker;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -106,6 +112,20 @@ public class MainActivity extends AppCompatActivity {
         String currDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
         date.setText(currDate);
 
+        final Handler handler = new Handler();
+
+        handler.postDelayed(new Runnable() {
+
+            @Override
+
+            public void run() {
+
+                isOnline();
+
+            }
+
+        }, 5000);
+
 
         progressBar.setVisibility(View.VISIBLE);
         reff.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -116,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
                     //Getting total Count
                     BloodGroups WHB=snapshot1.child("WholeHumanBlood").getValue(BloodGroups.class);
                     BloodGroups PRBC=snapshot1.child("PackedRBC").getValue(BloodGroups.class);
-                    BloodGroups PC=snapshot1.child("PlateletConcentration").getValue(BloodGroups.class);
+                    BloodGroups PC=snapshot1.child("PlateletConcentrate").getValue(BloodGroups.class);
                     BloodGroups AHF=snapshot1.child("AntiHaemophilicFactor").getValue(BloodGroups.class);
                     BloodGroups FFP=snapshot1.child("FreshFrozenPlasma").getValue(BloodGroups.class);
 
@@ -486,7 +506,7 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(this,"Error Occurred",Toast.LENGTH_LONG).show();
                         }
                         break;
-                    case "Platelet Concentration":
+                    case "Platelet Concentrate":
                         switch (bg){
                             case "A+ve":
                                 if(pcitemcount.get(i)>0 && pcl.get(i).AP>0){
@@ -702,5 +722,25 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
+    }
+    public boolean isOnline() {
+        ConnectivityManager conMgr = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = conMgr.getActiveNetworkInfo();
+
+        if(netInfo == null || !netInfo.isConnected() || !netInfo.isAvailable()){
+            AlertDialog.Builder builder =new AlertDialog.Builder(this);
+            builder.setTitle("No Internet Connection");
+            builder.setMessage("Please turn on internet connection to continue");
+            builder.setNegativeButton("close", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
+            return false;
+        }
+        return true;
     }
 }

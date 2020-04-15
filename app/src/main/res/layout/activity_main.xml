@@ -23,7 +23,7 @@
             android:textColor="@color/black"
             android:textSize="17sp"
             android:textStyle="bold"
-            android:text="Availibilty in Gr. Mumbai: "/>
+            android:text="Availability in Gr. Mumbai: "/>
         <TextView
             android:id="@+id/date"
             android:layout_width="wrap_content"

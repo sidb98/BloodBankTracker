@@ -28,6 +28,9 @@ public class ShowbbDB extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_showbb_d_b);
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         bbname=(TextView)findViewById(R.id.textbbname);
         bbname.setText(MainActivity.bbnameref);
 
@@ -91,7 +94,7 @@ public class ShowbbDB extends AppCompatActivity {
 
                 BloodGroups WHB=dataSnapshot.child(MainActivity.bbref).child("WholeHumanBlood").getValue(BloodGroups.class);
                 BloodGroups PRBC=dataSnapshot.child(MainActivity.bbref).child("PackedRBC").getValue(BloodGroups.class);
-                BloodGroups PC=dataSnapshot.child(MainActivity.bbref).child("PlateletConcentration").getValue(BloodGroups.class);
+                BloodGroups PC=dataSnapshot.child(MainActivity.bbref).child("PlateletConcentrate").getValue(BloodGroups.class);
                 BloodGroups AHF=dataSnapshot.child(MainActivity.bbref).child("AntiHaemophilicFactor").getValue(BloodGroups.class);
                 BloodGroups FFP=dataSnapshot.child(MainActivity.bbref).child("FreshFrozenPlasma").getValue(BloodGroups.class);
 
