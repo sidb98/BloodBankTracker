@@ -1,9 +1,14 @@
 package com.example.android.bbtracker;
 
+import android.content.Context;
+import android.content.DialogInterface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -85,6 +90,8 @@ public class ShowbbDB extends AppCompatActivity {
         ffpop=(TextView)findViewById(R.id.tvffpOP);
         ffpon=(TextView)findViewById(R.id.tvffpON);
 
+        isOnline();
+
 
         DatabaseReference reff= FirebaseDatabase.getInstance().getReference().child("PacketTracker");
         //Log.d("TAG1",MainActivity.bbref);
@@ -165,11 +172,31 @@ public class ShowbbDB extends AppCompatActivity {
 
     }
 
-
-
     @Override
     protected void onPause() {
         super.onPause();
         finish();
     }
+
+    public boolean isOnline() {
+        ConnectivityManager conMgr = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = conMgr.getActiveNetworkInfo();
+
+        if(netInfo == null || !netInfo.isConnected() || !netInfo.isAvailable()){
+            AlertDialog.Builder builder =new AlertDialog.Builder(this);
+            builder.setTitle("No Internet Connection");
+            builder.setMessage("Please turn on internet connection to continue");
+            builder.setNegativeButton("close", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
+            return false;
+        }
+        return true;
+    }
+
 }
