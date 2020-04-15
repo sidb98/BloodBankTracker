@@ -83,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        FirebaseAuth.getInstance().signOut();
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -104,6 +103,9 @@ public class MainActivity extends AppCompatActivity {
         pccount=(TextView)findViewById(R.id.pccount);
         ahfcount=(TextView)findViewById(R.id.ahfcount);
         ffpcount=(TextView)findViewById(R.id.ffpcount);
+
+        Intent stickyService = new Intent(this, StickyServices.class);
+        startService(stickyService);
 
         date = findViewById(R.id.date);
         String currDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
@@ -732,4 +734,5 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     }
+
 }

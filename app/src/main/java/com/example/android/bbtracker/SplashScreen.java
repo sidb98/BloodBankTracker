@@ -6,7 +6,10 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 
 public class SplashScreen extends AppCompatActivity {
@@ -24,7 +27,6 @@ public class SplashScreen extends AppCompatActivity {
                 Intent mainIntent = new Intent(SplashScreen.this, MainActivity.class);
                 mainIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 SplashScreen.this.startActivity(mainIntent);
-                SplashScreen.this.finish();
             }
         }, SPLASH_DISPLAY_LENGTH);
     }
@@ -33,4 +35,5 @@ public class SplashScreen extends AppCompatActivity {
     public void onBackPressed() {
 
     }
+
 }
